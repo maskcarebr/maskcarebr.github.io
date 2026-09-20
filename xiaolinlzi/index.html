@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="小林绿子官方资源站，提供《挪威的森林》小林绿子角色深度解析、经典语录摘录及相关文学与影视作品推荐。">
+    <meta name="keywords" content="小林绿子, 挪威的森林, 村上春树, 小林绿子语录, 文学人物">
+    <title>小林绿子-文学人物深度解析与经典语录</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-color: #f9f7f2;
+            --text-main: #2c2c2c;
+            --text-secondary: #5a5a5a;
+            --accent-color: #a8b5a2;
+            --accent-hover: #8da38b;
+            --card-bg: #ffffff;
+            --border-radius: 8px;
+            --spacing-unit: 1.5rem;
+            --max-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-secondary);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--text-main);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -24px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(168, 181, 162, 0.1) 0%, rgba(249, 247, 242, 0) 100%);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: #e8eae1;
+            color: var(--text-main);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            bottom: 5px;
+            width: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* Character Profile Grid */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .profile-img-container {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .profile-img-container img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+
+        .profile-img-container:hover img {
+            transform: scale(1.02);
+        }
+
+        .profile-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .profile-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .profile-desc {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Quotes Grid */
+        .quotes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .quote-card {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .quote-text {
+            font-size: 1.05rem;
+            font-style: italic;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+        }
+
+        .quote-source {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-align: right;
+        }
+
+        /* Context Section */
+        .context-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .context-item {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .context-icon {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            flex-shrink: 0;
+        }
+
+        .context-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .context-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Comparison Table */
+        .comparison-table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #f1f3ef;
+            font-weight: 600;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c2c2c;
+            color: #aaa;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-links a {
+            margin-left: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                padding: 0 1rem;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--card-bg);
+                box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+                padding: 1rem;
+            }
+
+            nav.open {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            nav a.active::after {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-img-container {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .context-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a href="#" class="logo">小林<span>绿子</span></a>
+        <button class="mobile-menu-btn" aria-label="菜单">☰</button>
+        <nav>
+            <ul>
+                <li><a href="#profile" class="active">人物介绍</a></li>
+                <li><a href="#quotes">经典语录</a></li>
+                <li><a href="#context">角色分析</a></li>
+                <li><a href="#works">相关作品</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>小林绿子</h1>
+            <p>《挪威的森林》中最具生命力与争议性的女性角色，用天真与率真在现实与虚幻中寻找自我。</p>
+            <div class="hero-tags">
+                <span class="tag">村上春树</span>
+                <span class="tag">文学经典</span>
+                <span class="tag">角色分析</span>
+                <span class="tag">80年代背景</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profile">
+        <div class="container">
+            <h2 class="section-title">人物档案</h2>
+            <div class="profile-grid">
+                <div class="profile-img-container">
+                    <!-- Using a placeholder that evokes a vintage/film aesthetic -->
+                    <img src="https://picsum.photos/seed/kawabata/600/800.jpg" alt="小林绿子角色插画风格示意图" width="600" height="800">
+                </div>
+                <div class="profile-content">
+                    <h2>她是怎样的人？</h2>
+                    <div class="profile-meta">
+                        <span>年龄：20岁左右</span>
+                        <span>身份：咖啡店店主</span>
+                        <span>性格：率真、大胆、充满生命力</span>
+                    </div>
+                    <div class="profile-desc">
+                        <p>小林绿子是小说《挪威的森林》中的核心女性角色。她经营着一家名为“小林咖啡店”的场所，经营方式大胆且具有现代感。与渡边彻所接触的其他女性角色（如直子）不同，绿子身上散发着一种强烈的、近乎原始的生命力。她不畏惧死亡，不回避痛苦，总是以乐观甚至有些天真烂漫的态度面对生活。这种特质使她成为渡边彻在经历直子离世和精神崩溃后，唯一能让他感受到“活着”的实体。</p>
+                    </div>
+                    <p style="margin-bottom: 1.5rem;">绿子的存在不仅是对渡边的一种救赎，也是对传统文学女性形象的一种突破。她既有女性的柔美，又有男性的洒脱。</p>
+                    <a href="#context" class="btn">深入了解角色特质</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quotes Section -->
+    <section id="quotes">
+        <div class="container">
+            <h2 class="section-title">经典语录</h2>
+            <div class="quotes-grid">
+                <article class="quote-card">
+                    <p class="quote-text">“死并非生的对立面，而作为生的一部分永存。”</p>
+                    <div class="quote-source">—— 关于对生命的理解</div>
+                </article>
+                <article class="quote-card">
+                    <p class="quote-text">“无论我做什么，我都认为只要我活着，这就是我的幸福。”</p>
+                    <div class="quote-source">—— 展现生命韧性</div>
+                </article>
+                <article class="quote-card">
+                    <p class="quote-text">“如果你想见我，就给我打电话。不管几点，不管多晚。”</p>
+                    <div class="quote-source">—— 大胆直接的追求</div>
+                </article>
+                <article class="quote-card">
+                    <p class="quote-text">“我也许并不完美，但我有一颗真实的心。”</p>
+                    <div class="quote-source">—— 诚实面对自我</div>
+                </article>
+                <article class="quote-card">
+                    <p class="quote-text">“在这个世界上，只有活着才是最重要的。”</p>
+                    <div class="quote-source">—— 生存哲学</div>
+                </article>
+                <article class="quote-card">
+                    <p class="quote-text">“你所谓的‘正常’，对我来说毫无意义。”</p>
+                    <div class="quote-source">—— 反叛传统观念</div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Context & Analysis Section -->
+    <section id="context">
+        <div class="container">
+            <h2 class="section-title">角色深度解析</h2>
+            <div class="context-list">
+                <div class="context-item">
+                    <div class="context-icon">❤️</div>
+                    <div class="context-content">
+                        <h3>与渡边彻的关系</h3>
+                        <p>绿子与渡边的感情是小说中最具现实感的一组关系。绿子不断地向渡边发出邀请，试图将他从直子的阴影中拉回现实世界。她代表了“现世”的引力，是渡边不得不面对的成人世界的真实面貌。</p>
+                    </div>
+                </div>
+                <div class="context-item">
+                    <div class="context-icon">🎭</div>
+                    <div class="context-content">
+                        <h3>“天真”与“世故”的辩证</h3>
+                        <p>绿子并非真正的无知，她只是选择了一种不被世俗规则束缚的生活方式。她知道如何经营咖啡店，如何应对复杂的社交场合，但在情感表达上，她保持了孩童般的纯粹。这种反差构成了她独特的魅力。</p>
+                    </div>
+                </div>
+                <div class="context-item">
+                    <div class="context-icon">🌱</div>
+                    <div class="context-content">
+                        <h3>象征意义：生命力</h3>
+                        <p>在小说中，绿子常与自然意象（如阳光、苹果、猫）联系在一起。她象征着自然界中顽强生长的力量，与直子所代表的沉寂、封闭的森林形成鲜明对比。她是渡边精神世界中的“光”。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works Section -->
+    <section id="works">
+        <div class="container">
+            <h2 class="section-title">相关作品</h2>
+            <div class="comparison-table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>作品名称</th>
+                            <th>作者</th>
+                            <th>绿子出现情况</th>
+                            <th>核心看点</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>《挪威的森林》</strong></td>
+                            <td>村上春树</td>
+                            <td>女主角之一</td>
+                            <td>渡边彻与绿子、直子之间的三角关系与自我救赎。</td>
+                        </tr>
+                        <tr>
+                            <td><strong>《眠》</strong></td>
+                            <td>村上春树</td>
+                            <td>未直接出现，但精神内核相通</td>
+                            <td>探讨生存的虚无感与面对现实的态度。</td>
+                        </tr>
+                        <tr>
+                            <td><strong>《且听风吟》</strong></td>
+                            <td>村上春树</td>
+                            <td>无直接关联</td>
+                            <td>村上春树早期的青春文学代表作，风格较为内敛。</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container footer-content">
+        <div class="footer-brand">
+            <p>&copy; 2023 小林绿子文学站. All Rights Reserved.</p>
+        </div>
+        <div class="footer-links">
+            <a href="#">关于我们</a>
+            <a href="#">版权声明</a>
+            <a href="#">联系我们</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Simple script for mobile menu toggle and smooth scrolling
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+        const navLinks = document.querySelectorAll('nav a');
+
+        // Toggle menu on mobile
+        menuBtn.addEventListener('click', function() {
+            nav.classList.toggle('open');
+            menuBtn.textContent = nav.classList.contains('open') ? '✕' : '☰';
+        });
+
+        // Close menu when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                nav.classList.remove('open');
+                menuBtn.textContent = '☰';
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
