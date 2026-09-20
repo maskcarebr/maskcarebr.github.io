@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="点睛的拼音 - 汉字拼音学习与查询平台。提供标准拼音注音、声调标注、多音字辨析及拼音书写规范指南，帮助用户掌握汉字发音技巧。">
+    <meta name="keywords" content="点睛, 点睛的拼音, 汉字拼音, 拼音学习, 声调, 多音字">
+    <title>点睛的拼音 - 汉字发音标准查询与拼音学习指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --highlight-color: #e74c3c;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            background: var(--accent-color);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: white;
+            padding: 4rem 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .search-box {
+            background: white;
+            padding: 10px;
+            border-radius: 50px;
+            display: inline-flex;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            outline: none;
+            border-radius: 50px;
+        }
+
+        .search-box button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .search-box button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title span {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: normal;
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .info-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pinyin-display {
+            font-size: 2.5rem;
+            font-family: "KaiTi", "STKaiti", serif;
+            color: var(--primary-color);
+            margin: 1rem 0;
+            letter-spacing: 2px;
+        }
+
+        .tone-indicator {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-left: 5px;
+        }
+
+        .definition {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .example-sentence {
+            background-color: #f1f8ff;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        /* Mnemonic Section */
+        .mnemonic-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .char-art {
+            font-size: 8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            line-height: 1;
+            user-select: none;
+        }
+
+        .pinyin-art {
+            font-size: 2.5rem;
+            font-family: "KaiTi", "STKaiti", serif;
+            color: var(--highlight-color);
+            margin-top: 10px;
+        }
+
+        .mnemonic-text {
+            max-width: 500px;
+        }
+
+        .mnemonic-text h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .mnemonic-text p {
+            margin-bottom: 15px;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            box-shadow: var(--shadow);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comparison-table th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 20px;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                font-size: 0.9rem;
+                gap: 15px;
+            }
+
+            .search-box {
+                flex-direction: column;
+                padding: 5px;
+            }
+
+            .search-box input {
+                width: 100%;
+                margin-bottom: 5px;
+            }
+
+            .search-box button {
+                width: 100%;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <a href="#" class="logo"><span>PIN</span>YIN.GUIDE</a>
+        <nav>
+            <ul>
+                <li><a href="#meaning">字义解析</a></li>
+                <li><a href="#pronunciation">发音指南</a></li>
+                <li><a href="#examples">成语例句</a></li>
+                <li><a href="#tools">学习工具</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>点睛的拼音</h1>
+    <p>掌握汉字发音的奥秘，从每一个声母、韵母和声调开始。</p>
+    <div class="search-box">
+        <input type="text" placeholder="输入汉字查询拼音 (例如: 龙, 凤, 虎)...">
+        <button>查询</button>
+    </div>
+</section>
+
+<main>
+    <!-- 核心拼音展示 -->
+    <section id="pronunciation">
+        <div class="section-title">
+            发音标准
+            <span>Standard Pronunciation</span>
+        </div>
+        <div class="info-grid">
+            <article class="info-card">
+                <h3>基本读音</h3>
+                <div class="pinyin-display">diǎn jīng</div>
+                <p class="definition">汉语拼音标准注音，使用国际通用的罗马字母拼写规则。</p>
+                <div class="example-sentence">
+                    <strong>注音：</strong>diǎn (三声) + jīng (一声)<br>
+                    <strong>注音符号：</strong>ˇ点 + ˉ经
+                </div>
+            </article>
+            
+            <article class="info-card">
+                <h3>声调分析</h3>
+                <div class="pinyin-display">
+                    diǎn <span class="tone-indicator">第三声 (上声)</span>
+                </div>
+                <div class="pinyin-display">
+                    jīng <span class="tone-indicator">第一声 (阴平)</span>
+                </div>
+                <p class="definition">声调决定了汉字的意义。第三声为降升调，第一声为高平调。</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- 字义解析 -->
+    <section id="meaning">
+        <div class="section-title">
+            字义解析
+            <span>Word Meaning</span>
+        </div>
+        <div class="info-grid">
+            <article class="info-card">
+                <h3>“点”字解析</h3>
+                <p class="definition">本义为小黑点，引申为液体滴落、短时间停留、标记或指示。在“点睛”中，意为“画龙点睛”中的“加上一笔”或“关键的一笔”。</p>
+                <div class="example-sentence">
+                    <strong>拼音：</strong>diǎn (三声)<br>
+                    <strong>同音字：</strong>碘、店、殿、电
+                </div>
+            </article>
+
+            <article class="info-card">
+                <h3>“睛”字解析</h3>
+                <p class="definition">指眼睛，眼珠。是视觉器官的核心部分，常用来比喻事物的关键之处。</p>
+                <div class="example-sentence">
+                    <strong>拼音：</strong>jīng (一声)<br>
+                    <strong>同音字：</strong>精、京、惊、经
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- 成语与文化 -->
+    <section id="examples">
+        <div class="section-title">
+            成语与文化
+            <span>Idioms & Culture</span>
+        </div>
+        <div class="info-grid">
+            <article class="info-card">
+                <h3>画龙点睛</h3>
+                <p class="definition">比喻说话或做事时在关键处加上一两句关键的话，使内容更加精辟、生动。</p>
+                <div class="example-sentence">
+                    <strong>拼音：</strong>huà lóng diǎn jīng<br>
+                    <strong>含义：</strong>为艺术作品注入灵魂，使其栩栩如生。
+                </div>
+            </article>
+
+            <article class="info-card">
+                <h3>画蛇添足</h3>
+                <p class="definition">比喻做了多余的事，非但无益，反而不合适。</p>
+                <div class="example-sentence">
+                    <strong>拼音：</strong>huà shé tiān zú<br>
+                    <strong>对比：</strong>与“点睛”形成鲜明对比，强调恰到好处的重要性。
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- 拼音书写规范 -->
+    <section id="rules">
+        <div class="section-title">
+            拼音书写规范
+            <span>Writing Standards</span>
+        </div>
+        <div class="mnemonic-container">
+            <div class="char-art">
+                点
+                <div class="pinyin-art">diǎn</div>
+            </div>
+            <div class="mnemonic-text">
+                <h3>如何正确书写拼音？</h3>
+                <p><strong>声调标法：</strong>声调标在韵母上。如果韵母是 a, o, e，标在第一个字母上；如果是 i, u, ü，标在后面的字母上（如 jīng 中的 jing）；如果是 ia, iao, ie, iu, in, ing 等，标在 i 后面。</p>
+                <p><strong>隔音符号：</strong>当 i, u, ü 开头的音节连在一起时，需要使用隔音符号（'）。例如：li'an (lian)。</p>
+                <p><strong>大写规则：</strong>句首字母和专有名词（如地名、人名）首字母必须大写。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 同音字对比 -->
+    <section id="comparison">
+        <div class="section-title">
+            同音字辨析
+            <span>Homophone Comparison</span>
+        </div>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>拼音</th>
+                    <th>汉字</th>
+                    <th>常见释义</th>
+                    <th>应用场景</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>diǎn</td>
+                    <td><strong>点</strong></td>
+                    <td>标记、指示、液体滴落</td>
+                    <td>点头、点菜、一点</td>
+                </tr>
+                <tr>
+                    <td>diǎn</td>
+                    <td>碘</td>
+                    <td>化学元素</td>
+                    <td>碘酒、加碘食盐</td>
+                </tr>
+                <tr>
+                    <td>diǎn</td>
+                    <td>店</td>
+                    <td>商店、店铺</td>
+                    <td>餐厅、书店、店铺</td>
+                </tr>
+                <tr>
+                    <td>jīng</td>
+                    <td><strong>睛</strong></td>
+                    <td>眼珠、视觉</td>
+                    <td>眼睛、火眼金睛</td>
+                </tr>
+                <tr>
+                    <td>jīng</td>
+                    <td>精</td>
+                    <td>精华、精神、精密</td>
+                    <td>精力、精神、精品</td>
+                </tr>
+                <tr>
+                    <td>jīng</td>
+                    <td>京</td>
+                    <td>首都</td>
+                    <td>北京、京沪线</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h4>关于拼音指南</h4>
+            <p style="color: #bdc3c7; font-size: 0.9rem;">提供准确、规范的汉语拼音查询服务，帮助学习者掌握汉字发音基础。</p>
+        </div>
+        <div class="footer-col">
+            <h4>快速链接</h4>
+            <ul>
+                <li><a href="#">声母表</a></li>
+                <li><a href="#">韵母表</a></li>
+                <li><a href="#">整体认读音节</a></li>
+                <li><a href="#">多音字查询</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>相关工具</h4>
+            <ul>
+                <li><a href="#">拼音转换器</a></li>
+                <li><a href="#">汉字输入法</a></li>
+                <li><a href="#">普通话水平测试</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy; 2023 汉字拼音学习平台. All Rights Reserved.
+    </div>
+</footer>
+
+</body>
+</html>
