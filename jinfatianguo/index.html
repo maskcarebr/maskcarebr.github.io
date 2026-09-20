@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金发天国 - 热门同人创作与二次元文化图鉴</title>
+    <meta name="description" content="金发天国是一个专注于二次元同人插画、角色形象展示与同人创作的在线图鉴平台。收录大量高质量的金发角色同人作品、创作教程及社区互动内容。">
+    <meta name="keywords" content="金发天国,同人图,二次元,插画,金发角色,动漫同人">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ffd700;
+            --primary-hover: #ffea70;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 12px;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 16px;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-btn {
+            background: none;
+            border: 1px solid #ddd;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .search-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffffff 100%);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 16px;
+            color: #2c2c2c;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #333;
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 2px solid #ddd;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-main);
+            background-color: rgba(0,0,0,0.02);
+        }
+
+        /* Main Content */
+        main {
+            max-width: var(--container-width);
+            margin: 40px auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 24px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 24px;
+            background-color: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        .view-all {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .view-all:hover {
+            color: var(--primary-color);
+        }
+
+        /* Grid Layout */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background-color: #eee;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background-color: rgba(0,0,0,0.6);
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            backdrop-filter: blur(4px);
+        }
+
+        .card-content {
+            padding: 16px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .author-avatar {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #ddd;
+        }
+
+        /* Feature Section (Alternating) */
+        .feature-section {
+            background-color: #fff;
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+
+        .feature-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .feature-image {
+            width: 100%;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-image img {
+            width: 100%;
+            display: block;
+        }
+
+        .feature-text h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .feature-text p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            font-size: 16px;
+        }
+
+        .feature-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-main);
+        }
+
+        .check-icon {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                height: auto;
+                flex-direction: column;
+                padding: 16px;
+                gap: 16px;
+            }
+            
+            nav ul {
+                gap: 16px;
+                font-size: 14px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .feature-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .grid-container {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 16px;
+            }
+
+            .card-image {
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary-color);">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 6v6l4 2"></path>
+                </svg>
+                <span>金发天国</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">作品分类</a></li>
+                    <li><a href="#">创作者</a></li>
+                    <li><a href="#">社区</a></li>
+                </ul>
+            </nav>
+            <button class="search-btn">搜索作品</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>探索金发角色的无限魅力</h1>
+            <p>汇聚全网优质同人插画、角色立绘与原创作品，在这里发现属于金发角色的独特美学。</p>
+            <div class="cta-group">
+                <a href="#" class="btn btn-primary">开始浏览</a>
+                <a href="#" class="btn btn-outline">投稿作品</a>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <!-- 热门推荐 -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">本周热门推荐</h2>
+                <a href="#" class="view-all">查看全部 &rarr;</a>
+            </div>
+            <div class="grid-container">
+                <article class="card">
+                    <div class="card-image">
+                        <span class="card-tag">同人</span>
+                        <img src="https://picsum.photos/seed/gold1/400/300" alt="金色长发少女插画">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">永恒的黄金瞳：同人创作集</h3>
+                        <div class="card-meta">
+                            <span class="author-info">
+                                <img src="https://picsum.photos/seed/u1/50/50" class="author-avatar" alt="作者头像">
+                                <span>ArtMaster</span>
+                            </span>
+                            <span>2.3w 浏览</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-image">
+                        <span class="card-tag">原创</span>
+                        <img src="https://picsum.photos/seed/gold2/400/300" alt="赛博朋克金发角色">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">霓虹下的守望者</h3>
+                        <div class="card-meta">
+                            <span class="author-info">
+                                <img src="https://picsum.photos/seed/u2/50/50" class="author-avatar" alt="作者头像">
+                                <span>NeonDraw</span>
+                            </span>
+                            <span>1.8w 浏览</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-image">
+                        <span class="card-tag">插画</span>
+                        <img src="https://picsum.photos/seed/gold3/400/300" alt="奇幻风格金发">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">森林深处的精灵王</h3>
+                        <div class="card-meta">
+                            <span class="author-info">
+                                <img src="https://picsum.photos/seed/u3/50/50" class="author-avatar" alt="作者头像">
+                                <span>FantasySky</span>
+                            </span>
+                            <span>1.5w 浏览</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-image">
+                        <span class="card-tag">壁纸</span>
+                        <img src="https://picsum.photos/seed/gold4/400/300" alt="唯美壁纸">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">秋日私语 - 4K壁纸</h3>
+                        <div class="card-meta">
+                            <span class="author-info">
+                                <img src="https://picsum.photos/seed/u4/50/50" class="author-avatar" alt="作者头像">
+                                <span>Pixie</span>
+                            </span>
+                            <span>9.2k 浏览</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 特色栏目：分类展示 -->
+        <section class="feature-section">
+            <div class="feature-container">
+                <div class="feature-text">
+                    <h2>按风格分类浏览</h2>
+                    <p>无论您是喜欢古风、现代、科幻还是奇幻风格，金发天国都为您精心整理了丰富的分类库，助您快速找到心仪的作品。</p>
+                    <ul class="feature-list">
+                        <li><span class="check-icon">✓</span> 古风仙侠与武侠同人</li>
+                        <li><span class="check-icon">✓</span> 现代校园与都市生活</li>
+                        <li><span class="check-icon">✓</span> 赛博朋克与未来科技</li>
+                        <li><span class="check-icon">✓</span> 奇幻魔法与异世界</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="margin-top: 10px;">查看分类列表</a>
+                </div>
+                <div class="feature-image">
+                    <img src="https://picsum.photos/seed/style/600/400" alt="风格分类展示">
+                </div>
+            </div>
+        </section>
+
+        <!-- 最新动态 -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">最新动态与更新</h2>
+                <a href="#" class="view-all">查看全部 &rarr;</a>
+            </div>
+            <div class="grid-container">
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/news1/400/300" alt="更新公告">
+                    </div>
+                    <div class="card-content">
+                        <div style="font-size: 12px; color: var(--primary-color); margin-bottom: 4px;">更新公告</div>
+                        <h3 class="card-title">平台新功能上线：高清图库模式</h3>
+                        <p style="font-size: 13px; color: #888; margin-top: 8px;">为更好的展示绘画细节，我们新增了4K无损原图查看功能...</p>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/news2/400/300" alt="社区活动">
+                    </div>
+                    <div class="card-content">
+                        <div style="font-size: 12px; color: var(--primary-color); margin-bottom: 4px;">社区活动</div>
+                        <h3 class="card-title">金发主题创作大赛开启报名</h3>
+                        <p style="font-size: 13px; color: #888; margin-top: 8px;">参与活动赢取限定周边与创作基金，即刻开始你的创作...</p>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/news3/400/300" alt="专访">
+                    </div>
+                    <div class="card-content">
+                        <div style="font-size: 12px; color: var(--primary-color); margin-bottom: 4px;">人物专访</div>
+                        <h3 class="card-title">专访知名画师：如何绘制完美的发丝</h3>
+                        <p style="font-size: 13px; color: #888; margin-top: 8px;">本期我们邀请到了资深画师分享关于光影与发质表现的经验...</p>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/news4/400/300" alt="教程">
+                    </div>
+                    <div class="card-content">
+                        <div style="font-size: 12px; color: var(--primary-color); margin-bottom: 4px;">教程分享</div>
+                        <h3 class="card-title">新手必看：SAI/PS金发上色技巧</h3>
+                        <p style="font-size: 13px; color: #888; margin-top: 8px;">从基础铺色到高光细节，一步步教你画出通透的黄金发色...</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于金发天国</h4>
+                <p style="font-size: 14px; color: #888;">金发天国致力于为二次元爱好者提供一个纯净、专业的同人创作与分享社区。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">投稿指南</a></li>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">社区规范</a></li>
+                    <li><a href="#">帮助中心</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>热门标签</h4>
+                <ul>
+                    <li><a href="#">同人图</a></li>
+                    <li><a href="#">立绘</a></li>
+                    <li><a href="#">金发</a></li>
+                    <li><a href="#">壁纸</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系我们</h4>
+                <ul>
+                    <li><a href="#">商务合作</a></li>
+                    <li><a href="#">反馈建议</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 金发天国. All rights reserved. 本站内容仅供展示，版权归原作者所有.
+        </div>
+    </footer>
+
+</body>
+  </html>
